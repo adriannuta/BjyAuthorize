@@ -92,8 +92,8 @@ class ZendDb implements ProviderInterface
 
         // Pass 2: build a role for each indexed row
         foreach ($indexedRows as $row) {
-            $parentRoleId   = isset($row[$this->parentRoleFieldName])
-                ? $indexedRows[$row[$this->parentRoleFieldName]][$this->roleIdFieldName] : null;
+            $parentRoleId   = isset($row[$this->identifierFieldName])
+                ? $indexedRows[$row[$this->identifierFieldName]][$this->parentRoleFieldName] : null;
             $roleId         = $row[$this->roleIdFieldName];
             $roles[$roleId] = new Role($roleId, $parentRoleId);
         }
